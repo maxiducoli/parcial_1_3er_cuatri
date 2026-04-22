@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="/src/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/src/css/home.css">
+    <title>Food Store</title>
+</head>
+<body>
+    <header  style="border: solid; border-color:blue">
+        <h1>Food Store</h1>
+        <div id="banner" style="border: solid; border-color:brown">
+        <img src="/src/assets/images/banner.png" alt="Banner Image">
+        </div>
+        <div class="nav-container" style="border: solid; border-color:red">   
+            <nav>
+                <ul>
+                    <li><a href="/src/pages/store/home/home.html">Home</a></li>
+                    <li><a href="/src/pages/store/cart/cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>    
+    </header>
+    <div class="layout-container" style="border: solid; border-color:green">
+        <aside id="categories-panel" style="border: solid; border-color:orange">
+            <h2>Categorías</h2>
+            <!-- Aquí se mostrarán las categorías -->
+        </aside>
+        <main id="catalog-area">
+            <label for="search-input">Buscar productos:</label> 
+            <input type="text" id="search-input" placeholder="Buscar productos...">
+            
+            <div id="products-grid" style="border: solid; border-color:purple">
+                <!-- Aquí se mostrarán los productos -->
+            </div>
+            
+    </main>
+</div>
+    <footer>
+        <p>&copy; 2026 Food Store. All rights reserved.</p>
+    </footer>
+    <script type="module" src="./home.ts"> </script>
+</body>
+</html>
