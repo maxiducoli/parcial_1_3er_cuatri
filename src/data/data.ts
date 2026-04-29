@@ -1,9 +1,9 @@
 // src/utils/data.ts
-import type { Product } from "../types/product";
-import type { ICategory } from "../types/category";
+import type { IProduct } from "../types/IProduct";
+import type { ICategoria } from "../types/ICategoria";
 
 
-const categorias: ICategory[] = [
+const categorias: ICategoria[] = [
   {
     id: 1,
     eliminado: false,
@@ -48,7 +48,7 @@ const categorias: ICategory[] = [
   },
 ];
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: IProduct[] = [
   {
     id: 1,
     eliminado: false,
@@ -292,7 +292,7 @@ export const PRODUCTS: Product[] = [
 ]
  
 
-export function getCategories(): ICategory[] {
+export function getCategories(): ICategoria[] {
   return categorias.filter((c) => !c.eliminado);
 }
 
