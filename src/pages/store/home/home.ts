@@ -4,6 +4,7 @@
 import { getCategories, PRODUCTS } from "../../../data/data";
 import type { IProduct } from "../../../types/IProduct";
 import type { ICategoria } from "../../../types/ICategoria";
+import type { ICartItem } from "../../../types/ICarrito";
 
 // --- REFERENCIAS AL DOM ---
 const categoriesContainer = document.getElementById("categories-panel");
@@ -146,11 +147,37 @@ searchInput.addEventListener("input", (e) => {
     renderFilteredProducts();
 });
 
-// --- 5. INICIALIZACIÓN ---
-// Función simulada para guardar en LocalStorage (La completaremos en el siguiente paso)
-function addToCart(productId: number) {
-    console.log(`Producto ID ${productId} agregado al carrito.`);
-    // Aquí irá la lógica de localStorage en el próximo mensaje.
+// ... (Mantén tus imports y variables anteriores) ...
+
+// --- 5. LÓGICA DEL CARRITO (HU-P1-03) ---
+function addToCart(productId: number): void {
+    // 1. Obtener carrito actual desde localStorage
+    // Usamos '|| []' para que si es null (primera vez), empiece con un array vacío.
+    let cart: ICartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // 2. Buscar si el producto ya existe en el carrito
+    const existingItem = cart.find(item => item.productId === productId);
+
+    if (existingItem) {
+        // Caso A: Ya existe, incrementamos cantidad
+        existingItem.cantidad += 1;
+        console.log(`Producto ${productId} actualizado. Nueva cantidad: ${existingItem.cantidad}`);
+    } else {
+        // Caso B: No existe, lo agregamos con cantidad 1
+        const newItem: ICartItem = {
+            productId: productId,
+            cantidad: 1
+        };
+        cart.push(newItem);
+        console.log(`Producto ${productId} agregado al carrito.`);
+    }
+
+    // 3. Guardar el carrito actualizado en localStorage
+    // localStorage solo acepta strings, por eso usamos JSON.stringify
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Feedback visual al usuario (Opcional, pero recomendado para UX)
+    alert("Producto agregado al carrito correctamente.");
 }
 
 // Ejecutar al cargar la página

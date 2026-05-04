@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito - Food Store</title>
+    <link rel="stylesheet" href="../../../css/home.css"> 
+      <link rel="stylesheet" href="../../../css/carrito.css">
 </head>
 <body>
-    <script src="cart.ts"> </script>
+
+    <header class="main-header">
+        <div class="logo">Food Store</div>
+        <nav>
+            <a href="../home/home.html">Home</a>
+            <a href="#" class="active">Carrito</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DEL CARRITO -->
+    <main class="cart-container">
+        <h2>Tu Carrito de Compras</h2>
+
+        <div id="cart-items" class="cart-items-grid">
+            
+            <!-- Mensaje para cuando el carrito esté vacío (se mostrará/ocultará con TS) -->
+            <p id="empty-cart-message" style="display: none;">Tu carrito está vacío. ¡Agrega productos!</p>
+            
+        </div>
+
+        <aside class="cart-summary">
+            <h3>Resumen</h3>
+            <p>Total a pagar:</p>
+            <p id="cart-total-price" class="total-price">$0.00</p>
+        </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <p>&copy; 2024 Food Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="./cart.ts"></script>
 </body>
 </html>
