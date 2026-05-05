@@ -2,7 +2,6 @@
 
 import { PRODUCTS } from "../../../data/data";
 import type { ICartItem } from "../../../types/ICarrito"
-//import type { IProduct } from "../../../types/IProduct";
 
 // --- REFERENCIAS AL DOM ---
 const cartItemsContainer = document.getElementById("cart-items");

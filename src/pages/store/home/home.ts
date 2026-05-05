@@ -65,8 +65,6 @@ function renderProducts(productsToRender: IProduct[]): void {
 
         // Imagen: Concatenamos la ruta base con el nombre del archivo
         const img = document.createElement("img");
-        // ⚠️ Ajusta esta ruta si tus imágenes están en otra carpeta.
-        // Asumiendo estructura: src/assets/images/
         img.src = `/src/assets/images/${product.imagen}`; 
         img.alt = product.nombre;
         img.classList.add("product-img");
@@ -93,7 +91,7 @@ function renderProducts(productsToRender: IProduct[]): void {
         btnAdd.textContent = "Agregar al Carrito";
         btnAdd.classList.add("btn-add");
         
-        // Evento de agregar (Lógica HU-P1-03)
+        // Evento de agregar
         btnAdd.onclick = () => {
             addToCart(product.id);
             // Feedback visual simple
